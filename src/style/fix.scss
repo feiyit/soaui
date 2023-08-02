@@ -1,0 +1,36 @@
+/* 覆盖element-plus样式 */
+:root {
+	--el-color-primary: #4318ff;
+	--el-color-primary-light-1: #53a7ff;
+	--el-color-primary-light-2: #66b1ff;
+	--el-color-primary-light-3: #79bbff;
+	--el-color-primary-light-4: #8cc4ff;
+	--el-color-primary-light-5: #9fceff;
+	--el-color-primary-light-6: #b2d8ff;
+	--el-color-primary-light-7: #c5e1ff;
+	--el-color-primary-light-8: #d8ebff;
+	--el-color-primary-light-9: #ebf5ff;
+	--el-color-primary-dark-1: #398ee5;
+	--el-color-primary-dark-2: #337ecc;
+	--el-color-primary-dark-3: #2c6eb2;
+	--el-color-primary-dark-4: #265e99;
+	--el-color-primary-dark-5: #204f7f;
+	--el-color-primary-dark-6: #193f66;
+	--el-color-primary-dark-7: #132f4c;
+	--el-color-primary-dark-8: #0c1f32;
+	--el-color-primary-dark-9: #060f19;
+}
+
+$danger-btn-color: #F25454;
+$primary-btn-color:#4318ff;
+$success-btn-color:#12A763;
+
+
+//修改默认按钮颜色
+.el-button--primary{
+	background-color: $primary-btn-color;
+	border-radius: 4px;
+	font-size: 16px;
+	border: 0;
+	
+}
