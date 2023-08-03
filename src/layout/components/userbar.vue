@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="user-bar">
       <div class="screen panel-item hidden-sm-and-down" @click="screen">
         <el-icon><FullScreen /></el-icon>
@@ -73,7 +72,6 @@
         </template>
       </el-dropdown>
     </div>
-  </div>
 </template>
 
 <script lang="ts" setup>
@@ -84,7 +82,7 @@ const msgList = reactive([
     id: 1,
     type: "user",
     avatar: "img/avatar.jpg",
-    title: "Skuya",
+    title: "Feiyt",
     describe: "如果喜欢就点个星星支持一下哦",
     link: "https://github.com/feiyit/soaui",
     time: "5分钟前",
@@ -93,7 +91,7 @@ const msgList = reactive([
     id: 2,
     type: "user",
     avatar: "img/avatar2.gif",
-    title: "Lolowan",
+    title: "Tyland",
     describe: "点进去Gitee获取最新开源版本",
     link: "https://github.com/feiyit/soaui",
     time: "14分钟前",

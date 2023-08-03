@@ -94,13 +94,13 @@ const handleLogin=()=>{
   background-size: cover;
 }
 .content {
-  height: 600px;
-  width: 510px;
+  height: 560px;
+  width: 500px;
   max-height: 620px;
   background: #ffffff;
   border-radius: 10px;
   padding: 20px 60px;
-  margin: 3% auto 0;
+  margin: 2% auto 0;
 }
 .content .title {
   font-size: 1.5rem;
