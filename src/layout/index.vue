@@ -1,11 +1,12 @@
 <script lang="ts" setup>
   import { ref, computed, nextTick } from "vue";
   import { useRoute, useRouter } from "vue-router";
-  import { useKeepAliveStore } from "../store/modules/keepAlive";
+  import { useKeepAliveStore } from "@/store/modules/keepAlive";
   import dynamicRouter from "@/router/dynamic";
   import userbar from "./components/userbar.vue";
   import navmenu from "./components/navmenu.vue";
   import topbar from './components/topbar.vue';
+  import tags from './components/tags.vue';
 
   const route = useRoute();
   const router = useRouter();
@@ -54,13 +55,9 @@
   };
 
   const showThis = () => {
-    // console.log("breadcrumbs", breadcrumbs.value);
-    console.log("currentRoute", router.currentRoute.value);
-    console.log("route.matched", route.matched);
     pmenu.value = router.currentRoute.value.meta.breadcrumb
       ? router.currentRoute.value.meta.breadcrumb[0]
       : {};
-    console.log("pmenu.value", pmenu.value);
     nextMenu.value = filterUrl(pmenu.value.children);
     nextTick(() => {
       active.value =
@@ -135,7 +132,7 @@
     </div>
     <div class="aminui-body el-container">
       <topbar></topbar>
-      <!-- <Tags></Tags> -->
+      <tags></tags>
       <div class="adminui-main" id="adminui-main">
         <router-view v-slot="{ Component }">
           <keep-alive :include="keepAliveStore.keepLiveRoute">
