@@ -1,30 +1,38 @@
 const DEFAULT_CONFIG = {
-    //版本号
-    APP_VER: "1.0.0",
+  //版本号
+  APP_VER: "1.0.0",
 
-    //标题
-	APP_NAME: import.meta.env.VITE_APP_TITLE,
+  //应用ID
+  APP_KEY: "870cb6cfa286ac4cac462bc8e33b1bb5",
 
-    //首页地址
-	DASHBOARD_URL: "/dashboard",
+  //参数加密签名Key
+  SIGN_KEY: "ab517f95fab7d57",
 
-    //接口地址
-    API_URL: import.meta.env.VITE_BASE_API,
+  //标题
+  APP_NAME: import.meta.env.VITE_APP_TITLE,
 
-    //服务器地址
-    SERVER_URL: import.meta.env.VITE_BASE_API,
+  //首页地址
+  DASHBOARD_URL: "/dashboard",
 
-    //请求超时
-    TIMEOUT: 10000,
+  //接口地址
+  API_URL: import.meta.env.VITE_BASE_API,
 
-    //TokenName
-    TOKEN_NAME: "accessToken",
+  //服务器地址
+  SERVER_URL: import.meta.env.VITE_BASE_API,
 
-    //Token前缀，注意最后有个空格，如不需要需设置空字符串
-    TOKEN_PREFIX: "",
+  //请求超时
+  TIMEOUT: 10000,
 
-    //追加其他头
-    HEADERS: {},
+  //TokenName
+  TOKEN_NAME: "accessToken",
 
-}
-export default DEFAULT_CONFIG
+  //Token前缀，注意最后有个空格，如不需要需设置空字符串
+  TOKEN_PREFIX: "",
+
+  //追加其他头
+  HEADERS: {},
+
+  //请求是否开启缓存
+  REQUEST_CACHE: false,
+};
+export default DEFAULT_CONFIG;

@@ -1,4 +1,4 @@
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 import * as VueRouter from "vue-router";
 import { useUserStore } from "@/store/modules/user";
 import { ElNotification } from "element-plus";
@@ -13,9 +13,9 @@ NProgress.configure({ showSpinner: false });
 const routes_404 = {
   path: "/:pathMatch(.*)*",
   hidden: true,
-  component: () => import(/* webpackChunkName: "404" */ "@/layout/other/404"),
+  component: () => import("@/layout/other/404.vue"),
 };
-
+let routes_404_r = () => {};
 const routes = [
   {
     name: "layout",
@@ -32,10 +32,6 @@ const routes = [
     path: "/login",
     component: () => import("../views/login/index.vue"),
   },
-  {
-    path: "/404",
-    component: () => import("@/layout/other/404.vue"),
-  },
 ];
 
 const router = VueRouter.createRouter({
@@ -47,15 +43,13 @@ const router = VueRouter.createRouter({
 var isLoadRouter = false;
 router.beforeEach(async (to, _from, next) => {
   const userStore = useUserStore();
-  // console.log("user", userStore.user);
-  // console.log(to);
-  // console.log(_from);
-  // console.log(next);
   NProgress.start();
-
   if (to.path === "/login" && !userStore.user) {
     //删除路由(替换当前layout路由)
-    //router.addRoute(routes[0])
+    router.addRoute(routes[0]);
+    //删除路由(404)
+    routes_404_r();
+    isLoadRouter = false;
     next();
     return false;
   }
@@ -77,12 +71,12 @@ router.beforeEach(async (to, _from, next) => {
 
   //加载动态路由
   if (!isLoadRouter) {
-    // console.log("dynamicRouter", dynamicRouter);
     var menuRouter = filterAsyncRouter(dynamicRouter);
     menuRouter = flatAsyncRoutes(menuRouter);
     menuRouter.forEach((item) => {
       router.addRoute("layout", item);
     });
+    routes_404_r = router.addRoute(routes_404);
     if (to.matched.length == 0) {
       router.push(to.fullPath);
     }

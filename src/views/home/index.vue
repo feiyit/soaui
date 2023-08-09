@@ -16,6 +16,12 @@
         <div style="margin-top:50px"><el-button type="primary" @click="changeDevice">改变Device值</el-button></div>
          <div style="margin-top:50px"><el-button type="primary" @click="resetDevice">重置Device值</el-button></div>
       </div>
+      <el-button type="primary" plain @click="fullpage">fullpage</el-button>
+<hr>
+      <el-button type="primary" plain @click="addStorage">Add LocalStorage</el-button> 
+      <el-button type="primary" plain @click="getStorage">Get Storage</el-button>
+      <el-button type="primary" plain @click="clearStorage">Clear Storage</el-button>
+<hr>
     </div>
   </template>
   
@@ -24,6 +30,7 @@
   import { useRouter } from "vue-router";
   import { useAppStore } from "@/store/modules/app";
   import { useSettingsStore } from "@/store/modules/setting";
+  import tool from "@/utils/tool";
   const router = useRouter();
   const appStore = useAppStore();
   const settingStore = useSettingsStore();
@@ -53,6 +60,24 @@
     settingStore.resetDevice()
   };
   
+  const fullpage=()=>{
+    router.push('/other/fullpage');
+  }
   
   const msg = ref("我是Home.vue");
+
+  const addStorage=()=>{
+    tool.localService.set("user","zhang mr");
+  }
+
+  const getStorage=()=>{
+    const v=tool.localService.get("user");
+    console.log(v);
+  }
+
+  const clearStorage=()=>{
+    tool.localService.clear();
+  }
+
+
   </script>

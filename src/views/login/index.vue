@@ -60,6 +60,7 @@ import { ref,reactive } from "vue";
 import { useRouter } from "vue-router";
 import { UserFilled,Lock } from '@element-plus/icons-vue'
 import { useUserStore } from "@/store/modules/user"
+import tool from "@/utils/tool"
 const loginForm = reactive({
   username: "admin",
   password: "12345678",
@@ -78,6 +79,7 @@ const loading = ref(false)
 const handleLogin=()=>{
   loading.value=true;
   userStore.setUser({id:1,userName:"鸿星"});
+  tool.localService.set("PERMISSIONS",["user.add"]);
   setTimeout(() => {
     loading.value=false
     router.push({ path: "/" });

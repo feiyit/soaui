@@ -3,19 +3,24 @@ import { useStorage } from "@vueuse/core";
 
 export const useUserStore = defineStore("user", () => {
 
-    const user = useStorage("userInfo", null);
+    const user = useStorage("USER_INFO", null);
 
     const getUser = () => {
-        return user.value
-    }
+      return user.value;
+    };
 
-    const setUser=(param: object)=>{
-        user.value=param
-    }
+    const setUser = (param: object) => {
+      user.value = param;
+    };
+
+    const clearUser = () => {
+      user.value = null;
+    };
 
     return {
-        user,
-        getUser,
-        setUser
-    }
+      user,
+      getUser,
+      setUser,
+      clearUser,
+    };
 })

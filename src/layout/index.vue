@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-  import { ref, computed, nextTick } from "vue";
+  import { ref, computed, nextTick,watch } from "vue";
   import { useRoute, useRouter } from "vue-router";
   import { useKeepAliveStore } from "@/store/modules/keepAlive";
   import dynamicRouter from "@/router/dynamic";
   import userbar from "./components/userbar.vue";
   import navmenu from "./components/navmenu.vue";
-  import topbar from './components/topbar.vue';
-  import tags from './components/tags.vue';
+  import topbar from "./components/topbar.vue";
+  import tags from "./components/tags.vue";
 
   const route = useRoute();
   const router = useRouter();
@@ -66,6 +66,10 @@
     });
   };
 
+  const exitMaximize = () => {
+    document.getElementById("app").classList.remove("main-maximize");
+  };
+
   const menu = computed(() => {
     return filterUrl(dynamicRouter);
   });
@@ -77,6 +81,15 @@
   getBreadcrumb();
 
   showThis();
+  watch(
+    route,
+    (e) => {
+      showThis();
+    },
+    {
+      deep: true,
+    }
+  );
 </script>
 <template>
   <header class="adminui-header">
@@ -146,6 +159,9 @@
       </div>
     </div>
   </section>
+  <div class="main-maximize-exit" @click="exitMaximize">
+    <el-icon><Close /></el-icon>
+  </div>
 </template>
 
 <style scoped>

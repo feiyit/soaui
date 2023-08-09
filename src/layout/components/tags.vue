@@ -4,7 +4,7 @@
       <li
         v-for="tag in tagList"
         v-bind:key="tag"
-        :class="[isActive(tag) ? 'active' : '', tag.meta.affix ? 'affix' : '']"
+        :class="[isActive(tag) ? '' : '', tag.meta.affix ? 'affix' : '']"
         @contextmenu.prevent="openContextMenu($event, tag)"
       >
         <router-link :to="tag">
@@ -99,7 +99,7 @@
   };
   //高亮tag
   const isActive = (route) => {
-    return route.fullPath === fullPath;
+    return route.fullPath === fullPath.value;
   };
   //关闭tag
   const closeSelectedTag = (tag, autoPushLatestView = true) => {
@@ -109,7 +109,7 @@
     viewTagsStore.removeViewTags(tag);
     iframeStore.removeIframeList(tag);
     keepAliveStore.removeKeepLive(tag.name);
-    if (autoPushLatestView && isActive(tag)) {
+    if (autoPushLatestView) {
       const leftView = tagList.value[nowTagIndex - 1];
       if (leftView) {
         router.push(leftView);
@@ -143,7 +143,7 @@
     contextMenuVisible.value = false;
     const nowTag = contextMenuItem.value;
     //判断是否当前路由，否的话跳转
-    if (fullPath !== nowTag.fullPath) {
+    if (fullPath.value !== nowTag.fullPath) {
       router.push({ path: nowTag.fullPath, query: nowTag.query });
     }
     iframeStore.refreshIframe(nowTag);
@@ -168,7 +168,7 @@
   const closeOtherTabs = () => {
     var nowTag = contextMenuItem.value;
     //判断是否当前路由，否的话跳转
-    if (fullPath != nowTag.fullPath) {
+    if (fullPath.value != nowTag.fullPath) {
       router.push({ path: nowTag.fullPath, query: nowTag.query });
     }
     var tags = [...tagList.value];
@@ -186,7 +186,7 @@
     var nowTag = contextMenuItem.value;
     contextMenuVisible.value = false;
     //判断是否当前路由，否的话跳转
-    if (fullPath != nowTag.fullPath) {
+    if (fullPath.value != nowTag.fullPath) {
       router.push({ path: nowTag.fullPath, query: nowTag.query });
     }
     document.getElementById("app").classList.add("main-maximize");

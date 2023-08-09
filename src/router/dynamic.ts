@@ -18,6 +18,36 @@ const routes = [
         },
         component: "home/index",
       },
+      {
+        name: "directive",
+        path: "/other/directive",
+        meta: {
+          title: "指令",
+          icon: "Flag",
+        },
+        component: "other/directive",
+      },
+      {
+        path: "https://baidu.com",
+        name: "外链百度",
+        meta: {
+          title: "外链百度",
+          icon: "Link",
+          type: "link",
+        },
+      },
+      {
+        path: "/other/fullpage",
+        name: "fullpage",
+        meta: {
+          title: "整页路由",
+          icon: "Monitor",
+          fullpage: true,
+          hidden: true,
+          type: "menu",
+        },
+        component: "other/fullpage",
+      },
     ],
   },
   {

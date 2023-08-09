@@ -365,10 +365,10 @@ textarea {
 .adminui-tags li:hover {
     background: #ecf5ff;
 }
-.adminui-tags li.active {
-    background: #409eff;
+.adminui-tags li a.router-link-active {
+    background-color: var(--el-color-primary);
 }
-.adminui-tags li.active a {
+.adminui-tags li a.router-link-active {
     color: #fff;
 }
 .adminui-tags li.sortable-ghost {
