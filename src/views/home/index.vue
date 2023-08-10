@@ -31,6 +31,7 @@
   import { useAppStore } from "@/store/modules/app";
   import { useSettingsStore } from "@/store/modules/setting";
   import tool from "@/utils/tool";
+  import api from "@/api";
   const router = useRouter();
   const appStore = useAppStore();
   const settingStore = useSettingsStore();
@@ -79,5 +80,5 @@
     tool.localService.clear();
   }
 
-
+console.log("api",api);
   </script>
