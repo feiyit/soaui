@@ -26,45 +26,52 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       cors: true,
     },
     build: {
+      outDir: env.VITE_OUT_DIR,
       /** 消除打包大小超过 500kb 警告 */
       chunkSizeWarningLimit: 2000,
       terserOptions: {
         compress: {
           drop_console: true,
           drop_debugger: true,
-          pure_funcs: ["console.log"]
+          pure_funcs: ["console.log"],
         },
         format: {
           /** 删除注释 */
-          comments: false
-        }
+          comments: false,
+        },
       },
       /** 打包后静态资源目录 */
       assetsDir: "static",
       minify: "terser",
       rollupOptions: {
         output: {
-          chunkFileNames: 'js/[name]-[hash].js', // 分类输出
-          entryFileNames: 'js/[name]-[hash].js',
-          assetFileNames: '[ext]/[name]-[hash].[ext]',
+          chunkFileNames: "js/[name]-[hash].js", // 分类输出
+          entryFileNames: "js/[name]-[hash].js",
+          assetFileNames: "[ext]/[name]-[hash].[ext]",
           manualChunks(id) {
-            if (id.includes('node_modules')) { // 超大静态资源拆分
-              return id.toString().split('node_modules/')[1].split('/')[0].toString()
+            if (id.includes("node_modules")) {
+              // 超大静态资源拆分
+              return id
+                .toString()
+                .split("node_modules/")[1]
+                .split("/")[0]
+                .toString();
             }
-          }
-        }
-      }
-    },
-    plugins: [
-      vue(), 
-      UnoCSS(),
-      createHtmlPlugin({
-      // template: 'public/index.html',
-      inject: {
-        data: {
-          title: env.VITE_APP_TITLE,
+          },
         },
       },
-    }),],
-  }
+    },
+    plugins: [
+      vue(),
+      UnoCSS(),
+      createHtmlPlugin({
+        // template: 'public/index.html',
+        inject: {
+          data: {
+            title: env.VITE_APP_TITLE,
+          },
+        },
+      }),
+    ],
+  };
 })
