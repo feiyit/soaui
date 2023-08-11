@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { ref, computed, nextTick,watch } from "vue";
+  import { ref, computed, nextTick, watch } from "vue";
   import { useRoute, useRouter } from "vue-router";
   import { useKeepAliveStore } from "@/store/modules/keepAlive";
   import dynamicRouter from "@/router/dynamic";
@@ -148,13 +148,15 @@
       <tags></tags>
       <div class="adminui-main" id="adminui-main">
         <router-view v-slot="{ Component }">
-          <keep-alive :include="keepAliveStore.keepLiveRoute">
-            <component
-              :is="Component"
-              :key="key"
-              v-if="keepAliveStore.routeShow"
-            />
-          </keep-alive>
+          <transition name="el-fade-in" mode="out-in">
+            <keep-alive :include="keepAliveStore.keepLiveRoute">
+              <component
+                :is="Component"
+                :key="key"
+                v-if="keepAliveStore.routeShow"
+              />
+            </keep-alive>
+          </transition>
         </router-view>
       </div>
     </div>
