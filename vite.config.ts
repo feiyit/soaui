@@ -2,7 +2,8 @@ import { UserConfig, ConfigEnv, loadEnv, defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path, { resolve } from "path"
 import { createHtmlPlugin } from "vite-plugin-html"
-import UnoCSS from 'unocss/vite'
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import UnoCSS from "unocss/vite";
 
 // https://vitejs.dev/config/
 // export default defineConfig({
@@ -64,6 +65,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       UnoCSS(),
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), "src/icons/svg")],
+        symbolId: "icon-[dir]-[name]",
+      }),
       createHtmlPlugin({
         // template: 'public/index.html',
         inject: {
@@ -74,4 +79,4 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
     ],
   };
-})
+});

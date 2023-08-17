@@ -2,6 +2,7 @@
   import { ref, computed, nextTick, watch } from "vue";
   import { useRoute, useRouter } from "vue-router";
   import { useKeepAliveStore } from "@/store/modules/keepAlive";
+  import { useSettingsStore } from "@/store/modules/setting";
   import dynamicRouter from "@/router/dynamic";
   import userbar from "./components/userbar.vue";
   import navmenu from "./components/navmenu.vue";
@@ -11,6 +12,7 @@
   const route = useRoute();
   const router = useRouter();
   const keepAliveStore = useKeepAliveStore();
+  const settingStore = useSettingsStore();
 
   const filterUrl = (map) => {
     var newMap = [];
@@ -36,7 +38,6 @@
 
   const nextMenu = ref([]);
   const active = ref("");
-  const menuIsCollapse = ref(false);
   const pmenu = ref({});
 
   const showMenu = (route) => {
@@ -77,6 +78,14 @@
   const key = computed(() => {
     return route.path;
   });
+
+  const menuIsCollapse = computed(() => {
+    return settingStore.menuIsCollapse;
+  });
+
+  const collapseChange=()=>{
+    settingStore.menuIsCollapse=!settingStore.menuIsCollapse;
+  }
 
   getBreadcrumb();
 
@@ -136,7 +145,7 @@
           </el-menu>
         </el-scrollbar>
       </div>
-      <div class="adminui-side-bottom">
+      <div class="adminui-side-bottom" @click="collapseChange">
         <el-icon>
           <Expand v-if="menuIsCollapse" />
           <Fold v-else />

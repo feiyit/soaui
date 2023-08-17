@@ -1,6 +1,8 @@
 <template>
     <div>
       <h5>{{ msg }}</h5>
+      <p><svg-icon name="lock" color="#59f881" size="1.5" /></p>
+      <p><svg-icon name="link" size="2" /></p>
       <div @click="goLogin">go -Login</div>
       <div class="greetings">
         <h1 class="green">{{ appStore.count }}</h1>

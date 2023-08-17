@@ -8,6 +8,9 @@
         @contextmenu.prevent="openContextMenu($event, tag)"
       >
         <router-link :to="tag">
+          <el-icon v-if="tag.meta && tag.meta.icon">
+            <component :is="tag.meta.icon || 'el-icon-menu'" />
+          </el-icon>
           <span>{{ tag.meta.title }}</span>
           <el-icon
             v-if="!tag.meta.affix"

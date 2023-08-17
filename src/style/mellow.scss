@@ -1,0 +1,26 @@
+html.mellow{
+    //变量
+    --el-text-color: #7782aa;
+    --el-bg-color: #f0f3fa;
+
+    .adminui-header {background: #ffffff;box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);}
+    .user-bar .panel-item i{color: var(--el-text-color);}
+    .adminui-header .logo-bar{color: var(--el-text-color);}
+    .adminui-header .nav li{color: var(--el-text-color);}
+    .adminui-header .nav li.active{color: #442efb;}
+    .aminui-wrapper{margin-top: 8px;}
+    .aminui-body{margin-left: 8px;border-top-left-radius: 5px;}
+    .aminui-side{border-right: none;border-top-right-radius: 5px;}
+    .adminui-topbar{border-top-left-radius: 5px; border-bottom: none;}
+    .adminui-tags{padding:0px 15px;border-bottom: 1px solid #f6f8f9;border-bottom-left-radius: 5px;}
+    .adminui-tags li{border-top-left-radius: 8px; border-top-right-radius: 8px; overflow: hidden;font-size: 13px;}
+    .adminui-tags li a{padding:0px 15px;}
+    .adminui-tags li a.router-link-active{background-color: #f0f3fa;color: #1B2559}
+    .adminui-tags li i{margin-right: 3px;font-size: 15px;}
+    .adminui-tags li a i:first-child{margin-left: 0px;}
+    .adminui-header .user-bar .user label{color: var(--el-text-color);}
+
+    .adminui-main{background-color: var(--el-bg-color);}
+    //背景
+	#app {background: var(--el-bg-color);}
+}
