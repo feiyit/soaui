@@ -2,6 +2,12 @@ html.mellow{
     //变量
     --el-text-color: #7782aa;
     --el-bg-color: #f0f3fa;
+    --el-button-hover-bg-color:#4085f3;
+	--el-button-hover-border-color:#4085f3;
+    --el-color-success:#2fc463;
+    --el-color-success-light-3:#52dd84;
+    --el-color-warning:#e9b22b;
+    --el-color-danger:#ed4649;
 
     .adminui-header {background: #ffffff;box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);}
     .user-bar .panel-item i{color: var(--el-text-color);}
@@ -23,4 +29,7 @@ html.mellow{
     .adminui-main{background-color: var(--el-bg-color);}
     //背景
 	#app {background: var(--el-bg-color);}
+
+    .m-container{padding-right: 8px;}
+    .mcard{background: #ffffff; border-radius: 6px;}
 }

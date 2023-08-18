@@ -34,5 +34,8 @@ const DEFAULT_CONFIG = {
 
   //请求是否开启缓存
   REQUEST_CACHE: false,
+
+  //存储用户加密的key
+  AES_KEY: "2XNN4K8LC0ELVWN9",
 };
 export default DEFAULT_CONFIG;

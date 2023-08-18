@@ -51,6 +51,37 @@ const routes = [
     ],
   },
   {
+    name: "module",
+    path: "/module",
+    meta: {
+      title: "组件",
+      svgIcon: "component",
+      type: "menu",
+    },
+    children: [
+      {
+        name: "icon",
+        path: "/module/icon",
+        meta: {
+          title: "扩展图标",
+          icon: "Football",
+          type: "menu",
+        },
+        component: "module/icon",
+      },
+      {
+        name: "chart",
+        path: "/module/chart",
+        meta: {
+          title: "图表Echarts",
+          svgIcon: "zujian",
+          type: "menu",
+        },
+        component: "module/chart",
+      },
+    ],
+  },
+  {
     path: "/other/about",
     name: "about",
     meta: {

@@ -18,6 +18,7 @@
       <el-icon v-if="navMenu.meta && navMenu.meta.icon">
         <component :is="navMenu.meta.icon || 'el-icon-menu'" />
       </el-icon>
+      <svg-icon v-if="navMenu.meta && navMenu.meta.svgIcon" :name="navMenu.meta.svgIcon" :size="1.1" class="mr3 ml2" />
       <template #title>
         <span>{{ navMenu.meta.title }}</span>
         <span v-if="navMenu.meta.tag" class="menu-tag">

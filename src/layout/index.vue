@@ -3,6 +3,7 @@
   import { useRoute, useRouter } from "vue-router";
   import { useKeepAliveStore } from "@/store/modules/keepAlive";
   import { useSettingsStore } from "@/store/modules/setting";
+  import { useAutoLogout } from './other/autoExit';
   import dynamicRouter from "@/router/dynamic";
   import userbar from "./components/userbar.vue";
   import navmenu from "./components/navmenu.vue";
@@ -87,6 +88,14 @@
     settingStore.menuIsCollapse=!settingStore.menuIsCollapse;
   }
 
+  const layoutTags = computed(() => {
+    return settingStore.layoutTags;
+  });
+
+  const layoutBreadcrumb = computed(() => {
+    return settingStore.breadcrumb;
+  });
+
   getBreadcrumb();
 
   showThis();
@@ -99,6 +108,8 @@
       deep: true,
     }
   );
+
+  useAutoLogout();
 </script>
 <template>
   <header class="adminui-header">
@@ -114,9 +125,10 @@
           :class="pmenu.path == item.path ? 'active' : ''"
           @click="showMenu(item)"
         >
-          <el-icon>
+          <el-icon v-if="item.meta && item.meta.icon">
             <component :is="item.meta.icon || 'el-icon-menu'" />
           </el-icon>
+          <svg-icon v-if="item.meta && item.meta.svgIcon" :name="item.meta.svgIcon" class="mr2" />
           <span>{{ item.meta.title }}</span>
         </li>
       </ul>
@@ -153,8 +165,8 @@
       </div>
     </div>
     <div class="aminui-body el-container">
-      <topbar></topbar>
-      <tags></tags>
+      <topbar v-if="layoutBreadcrumb"></topbar>
+      <tags v-if="layoutTags"></tags>
       <div class="adminui-main" id="adminui-main">
         <router-view v-slot="{ Component }">
           <transition name="el-fade-in" mode="out-in">

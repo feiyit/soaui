@@ -61,8 +61,8 @@
       @command="handleCommand"
     >
       <div class="user-avatar">
-        <el-avatar :size="30">鸿</el-avatar>
-        <label>鸿星</label>
+        <el-avatar :size="30">{{user!=null?user.userName.substring(0,1):""}}</el-avatar>
+        <label>{{user.userName}}</label>
         <el-icon class="el-icon--right"><ArrowDown /></el-icon>
       </div>
       <template #dropdown>
@@ -87,6 +87,7 @@
   import { FullScreen, ChatDotRound, ArrowDown } from "@element-plus/icons-vue";
   const router = useRouter();
   const userStore = useUserStore();
+  const user=userStore.getUser();
   const msgList = reactive([
     {
       id: 1,
