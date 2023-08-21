@@ -9,10 +9,11 @@ import UnoCSS from "unocss/vite";
 // export default defineConfig({
 //   plugins: [vue()],
 // })
-const pathSrc = path.resolve(__dirname, "src");
+const pathSrc = path.resolve(__dirname, "./src");
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd());
   return {
+    base: env.VITE_PUBLIC_PATH,
     // dev 独有配置
     resolve: {
       alias: {

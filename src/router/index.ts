@@ -35,7 +35,7 @@ const routes = [
 ];
 
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHistory(),
+  history: VueRouter.createWebHistory(import.meta.env.VITE_PUBLIC_PATH),
   routes,
   // 刷新时，滚动条位置还原
   scrollBehavior: () => ({ left: 0, top: 0 }),
@@ -153,15 +153,6 @@ function flatAsyncRoutes(routes, breadcrumb = []) {
     }
   });
   return res;
-}
-//过滤树
-function treeFilter(tree, func) {
-  return tree
-    .map((node) => ({ ...node }))
-    .filter((node) => {
-      node.children = node.children && treeFilter(node.children, func);
-      return func(node) || (node.children && node.children.length);
-    });
 }
 
 export default router;
