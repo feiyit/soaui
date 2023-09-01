@@ -1,18 +1,68 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Pinia + Vue Router 示例
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+基于 Vue 3、Vite、TypeScript、Pinia 和 Vue Router 高可用的前端管理平台。
 
-## Recommended IDE Setup
+## 项目依赖
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+在开始之前，请确保你已经安装了以下依赖：
 
-## Type Support For `.vue` Imports in TS
+- [Node.js](https://nodejs.org/)
+- [Vue CLI](https://cli.vuejs.org/)
+- [Pinia](https://pinia.esm.dev/)
+- [Vue Router](https://router.vuejs.org/)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## 项目设置
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+首先，克隆这个仓库并安装依赖：
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+```bash
+git clone https://github.com/feiyit/soaui.git
+cd soaui
+pnpm install
+```
+
+## 运行项目
+运行以下命令以在本地启动开发服务器：
+```bash
+pnpm dev
+```
+
+
+## 项目结构说明
+
+- `src/`：项目源代码的根目录。
+  - `api/`：存放读取api访问配置。
+
+  - `assets/`：存放静态资源文件的目录，例如图片、样式、字体等。
+
+  - `components/`：包含 Vue 组件的目录，可以按功能或模块组织。
+
+  - `config/`：系统的全局配置以及组件配置。
+
+  - `directives/`：权限指令的相关配置。
+
+  - `icons/`：icon图标的配置，支持阿里svg图标。
+
+  - `layout/`：系统框架布局文件。
+
+  - `router/`：路由相关配置，包括静态路由、动态路由。
+
+  - `store/`：状态管理的相关配置。
+
+  - `style/`：样式相关配置。
+
+  - `utils/`：工具箱：包括数据请求封装、加解密等一些常用工具。
+
+  - `views/`：页面视图组件的目录，通常用于路由视图组件。
+
+  - `App.vue`：根组件，是应用的入口。
+
+  - `main.ts`：项目的入口文件，初始化 Vue 应用。
+
+- `package.json`：项目依赖和脚本配置文件，包括项目名称、依赖列表和自定义脚本。
+
+- `vite.config.js`：Vite 构建工具的配置文件，用于配置开发服务器、构建选项等。
+
+- `tsconfig.json`：TypeScript 配置文件，用于配置 TypeScript 编译选项和类型检查。
+
+
