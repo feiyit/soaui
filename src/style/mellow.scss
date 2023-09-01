@@ -31,5 +31,5 @@ html.mellow{
 	#app {background: var(--el-bg-color);}
 
     .m-container{padding-right: 8px;}
-    .mcard{background: #ffffff; border-radius: 6px;}
+    .mcard{background: #ffffff; border-radius: 6px; width:100%; display: flex; flex-direction: column;}
 }

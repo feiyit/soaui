@@ -30,7 +30,7 @@
 .el-container {height: 100%;}
 .el-aside {border-right: 1px solid var(--el-border-color-light);}
 .el-container + .el-aside {border-right: 0;border-left: 1px solid var(--el-border-color-light);}
-.el-header {background: #fff;border-bottom: 1px solid var(--el-border-color-light);padding:13px 15px;display: flex;justify-content: space-between;align-items: center;}
+.el-header {background: #fff;border-bottom: 1px solid var(--el-border-color-light);padding:13px 0px;display: flex;justify-content: space-between;align-items: center;}
 .el-header .left-panel {display: flex;align-items: center;}
 .el-header .right-panel {display: flex;align-items: center;}
 .el-header .right-panel > * + * {margin-left:10px;}

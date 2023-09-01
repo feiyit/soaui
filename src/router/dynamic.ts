@@ -70,6 +70,26 @@ const routes = [
         component: "module/icon",
       },
       {
+        name: "table",
+        path: "/module/table",
+        meta: {
+          title: "表格",
+          icon: "scale-to-original",
+          type: "menu",
+        },
+        component: "module/table",
+      },
+      {
+        name: "formtable",
+        path: "/module/formtable",
+        meta: {
+          title: "动态表格",
+          icon: "set-up",
+          type: "menu",
+        },
+        component: "module/formtable",
+      },
+      {
         name: "chart",
         path: "/module/chart",
         meta: {
