@@ -1,6 +1,6 @@
-# Vue 3 + TypeScript + Pinia + Vue Router 示例
+# <div style="text-align:center">SOAUI</div>
 
-基于 Vue 3、Vite、TypeScript、Pinia 和 Vue Router 高可用的前端管理平台。
+基于 Vue 3、Vite、TypeScript、Pinia 和 Vue Router 高可用的前端管理框架。
 
 ## 项目依赖
 
@@ -10,6 +10,7 @@
 - [Vue CLI](https://cli.vuejs.org/)
 - [Pinia](https://pinia.esm.dev/)
 - [Vue Router](https://router.vuejs.org/)
+- [axios](https://www.axios-http.cn/)
 
 ## 项目设置
 

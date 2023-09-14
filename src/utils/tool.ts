@@ -87,6 +87,23 @@ function objCopy(obj: any) {
   return JSON.parse(JSON.stringify(obj));
 }
 
+function objKeySort(arys: any) {
+  let newkey = Object.keys(arys).sort();
+  let newObj = {}; //创建一个新的对象，用于存放排好序的键值对
+  for (var i = 0; i < newkey.length; i++) {
+    //遍历newkey数组
+    newObj[newkey[i]] = arys[newkey[i]];
+    //向新创建的对象中按照排好的顺序依次增加键值对
+  }
+  let resStr = "";
+  for (const key in newObj) {
+    if (newObj[key]) {
+      resStr += key + newObj[key];
+    }
+  }
+  return resStr;
+}
+
 function dateFormat(date: Date, fmt: string = "yyyy-MM-dd hh:mm:ss"): string {
   const o: Record<string, number> = {
     "M+": date.getMonth() + 1,
