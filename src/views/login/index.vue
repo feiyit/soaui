@@ -44,11 +44,6 @@
             登 录
           </el-button>
         </div>
-        <div class="btn mt-8">
-          <el-button plain type="primary" size="large" round>
-            手机号码登录
-          </el-button>
-        </div>
       </el-form>
     </div>
     <div class="footer mt-20">版权XXX</div>
@@ -87,48 +82,48 @@ const handleLogin=()=>{
 }
 </script>
 <style scoped>
-.login_bg {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  background: url("@/assets/login/login_bg.png");
-  background-size: auto;
-  background-size: cover;
-}
-.content {
-  height: 560px;
-  width: 500px;
-  max-height: 620px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 20px 60px;
-  margin: 2% auto 0;
-}
-.content .title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-:deep(.el-input__wrapper) {
+  .login_bg {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background: url("@/assets/login/login_bg.png");
+    background-size: auto;
+    background-size: cover;
+  }
+  .content {
+    border-radius: 10px;
+    padding: 3% 60px 80px 60px;
+    margin: 2% auto 0;
+    width:500px;
+    background-color: #ffffff;
+    border-top: 5px solid #1961f7;
+  }
+  .content .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  :deep(.el-input__wrapper) {
     height: 50px;
-}
-:deep(.el-input__wrapper){
-  border-radius: 30px;
-}
-.btn {
-  text-align: center;
-}
-.btn .el-button {
-  width: 70%;
-  padding:20px;
-}
-.remember{
-  text-align: right;
-}
-.footer {
-  text-align: center;
-  color: #ffffff;
-}
-:deep(.el-icon){
-  font-size: 20px;
-}
+  }
+  :deep(.el-input__wrapper) {
+    border-radius: 30px;
+  }
+  .btn {
+    text-align: center;
+  }
+  .btn .el-button {
+    width: 70%;
+    padding: 20px;
+  }
+  .remember {
+    text-align: right;
+  }
+  .footer {
+    text-align: center;
+    color: #ffffff;
+  }
+  :deep(.el-icon) {
+    font-size: 20px;
+  }
 </style>
